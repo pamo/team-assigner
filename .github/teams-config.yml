@@ -1,0 +1,7 @@
+addReviewers: true
+addTeamLabel: true
+
+skipKeywords:
+  - wip
+  - work in progress
+  - hack

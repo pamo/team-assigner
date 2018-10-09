@@ -1,40 +1,41 @@
 {
-  "name": "probot-teams",
+  "name": "probot-team-assigner",
   "version": "1.0.0",
   "description": "Add a label and assign PRs to my team",
   "author": "Pamela Ocampo <pamela.ocampo@gmail.com> (https://likescoffee.com)",
   "license": "ISC",
-  "repository": "https://github.com/pamo/probot-teams.git",
-  "homepage": "https://github.com/pamo/probot-teams",
-  "bugs": "https://github.com/pamo/probot-teams/issues",
+  "repository": "https://github.com/pamo/probot-team-assigner.git",
+  "homepage": "https://github.com/pamo/probot-team-assigner",
+  "bugs": "https://github.com/pamo/probot-team-assigner/issues",
   "keywords": [
     "probot",
     "github",
     "probot-app"
   ],
   "scripts": {
-    "dev": "nodemon",
-    "start": "probot run ./index.js",
-    "lint": "standard --fix",
-    "test": "jest && standard",
+    "build": "tsc -p tsconfig.json",
+    "dev": "nodemon --exec \"npm start\"",
+    "start": "npm run build && probot run ./lib/index.js",
+    "lint": "tslint --project test",
+    "test": "jest",
     "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
   "dependencies": {
     "probot": "^7.2.0"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.4",
+    "@types/node": "^10.11.5",
     "jest": "^22.4.3",
     "nodemon": "^1.17.2",
     "smee-client": "^1.0.2",
-    "standard": "^10.0.3"
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.1.1"
   },
   "engines": {
     "node": ">= 8.3.0"
-  },
-  "standard": {
-    "env": [
-      "jest"
-    ]
   },
   "jest": {
     "testEnvironment": "node"
